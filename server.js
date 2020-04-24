@@ -9,6 +9,8 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
+  server.use("/api/tasks", require("./api/tasks"));
+
   server.get("/a", async (req, res) => {
     return app.render(req, res, "/a", req.query);
   });
